@@ -1,4 +1,10 @@
 #Created by Ethan Nauta
+
+#--Resources Used--#:
+#https://youtu.be/QFvqStqPCRU?si=gmiGOuEnrZTYafuq -- video watched until 26:02 for help setting up methods for the game.
+#https://www.geeksforgeeks.org/allowing-resizing-window-in-pygame/ -- where I found the method that allows window resizing.
+#https://www.geeksforgeeks.org/how-to-get-the-size-of-pygame-window/ -- where I found the method that returns window size.
+
 #Bring in pygame module
 import pygame, sys
 
