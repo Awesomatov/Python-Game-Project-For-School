@@ -83,16 +83,6 @@ d_speed = 10
 while True:
     
     screen_x1, screen_y1 = screen.get_size()
-    
-    if screen_x1 % 2 != 0:
-        
-        screen_x1 += 1
-        screen = pygame.display.set_mode((screen_x1, screen_y1), pygame.RESIZABLE)
-        
-    if screen_y1 % 2 != 0:
-        
-        screen_y1 += 1
-        screen = pygame.display.set_mode((screen_x1, screen_y1), pygame.RESIZABLE)
         
     if screen_x1 != screen_x2:
         
