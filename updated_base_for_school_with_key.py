@@ -10,7 +10,7 @@ screen_y = 400
 screen_x2 = screen_x
 screen_y2 = screen_y
 screen = pygame.display.set_mode((screen_x, screen_y), pygame.RESIZABLE)
-pygame.display.set_caption('Resizable')
+pygame.display.set_caption('Keys')
 
 
 #create a matrix to position the map tiles!
