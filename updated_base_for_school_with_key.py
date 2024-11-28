@@ -32,7 +32,7 @@ matrix = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,0],
           [0,0,1,1,1,1,1,0,3,3,0,0,0,1,1,0],
           [0,0,1,1,0,0,0,0,1,1,1,1,0,1,1,0],
-          [0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,0],
+          [0,0,1,1,0,0,0,0,-1,1,1,1,1,1,1,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],]
 
 
@@ -151,6 +151,11 @@ def blockCollision():
 
     #if the player is inside of a square, push them out in the direction they are closest to
     if check_x and check_y:
+        
+        #checks if the player is in the win square
+        if matrix[rows][columns] == -1:
+            
+            print('win')
         
         print('you are touching square ', rows, ' ', columns)
         
@@ -280,6 +285,17 @@ while True:
                 if plyr_key != door_dict[matrix[rows][columns]]:
                     
                     blockCollision()
+                    
+            
+            #-1 is the entry which the player has to get to to win.
+            if matrix[rows][columns] == -1:
+                
+                blockCollision()
+                
+                win = pygame.Surface((tile_size,tile_size))
+                win.fill(pygame.Color("black"))
+                
+                screen.blit(win, (columns*tile_size - x_pos, rows*tile_size - y_pos))
                 
                     
             #0 is defined as a wall, walls are drawn as white
