@@ -1,10 +1,4 @@
 #Created by Ethan Nauta
-
-#--Resources Used--#:
-#https://youtu.be/QFvqStqPCRU?si=gmiGOuEnrZTYafuq -- video watched until 26:02 for help setting up methods for the game.
-#https://www.geeksforgeeks.org/allowing-resizing-window-in-pygame/ -- where I found the method that allows window resizing.
-#https://www.geeksforgeeks.org/how-to-get-the-size-of-pygame-window/ -- where I found the method that returns window size.
-
 #Bring in pygame module
 import pygame, sys
 
@@ -16,7 +10,7 @@ screen_y = 400
 screen_x2 = screen_x
 screen_y2 = screen_y
 screen = pygame.display.set_mode((screen_x, screen_y), pygame.RESIZABLE)
-pygame.display.set_caption('Keys')
+pygame.display.set_caption('Resizable')
 
 
 #create a matrix to position the map tiles!
@@ -24,7 +18,7 @@ matrix_columns = int(16)
 matrix_rows = int(16)
 matrix_column_count = 0
 matrix_row_count = 0
-matrix = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+matrix = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,1,0,1,1,0,0,0,1,1,1,1,1,1,1,0],
           [0,1,1,1,1,1,1,0,1,1,0,0,1,1,1,0],
           [0,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0],
@@ -61,12 +55,12 @@ SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 100)
 
 #x and y position of the top left corner of the screen on the map.
-x_pos = 0
-y_pos = 0
+x_pos = -350
+y_pos = -150
 
 #the actual x and y positions of the centre of the player character.
-r_xpos = 400
-r_ypos = 200
+r_xpos = 50
+r_ypos = 50
 
 #state of players available keyboard inputs.
 w_state = 0
@@ -83,6 +77,26 @@ d_speed = 10
 #a dictionary that stores the numbers of a door to the color of the door
 #used later for comparing the players color to the door color to check if they may pass!
 door_dict = {}
+
+#places the player in the give row column of the matrix!
+def posPlayer(row, column):
+    
+    global x_pos
+    global y_pos
+    global r_xpos
+    global r_ypos
+    
+    x_pos += tile_size*column
+    y_pos += tile_size*row
+    
+    r_xpos += tile_size*column
+    r_ypos += tile_size*row
+    
+    
+    
+#----this is where you edit player position----#
+posPlayer(1,1)
+
 
 #make a door of whatever color the user chooses, then make a number for that doors associated key
 #color must be a string defined in pygames base colors
