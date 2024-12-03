@@ -1,5 +1,5 @@
 #Created by Ethan Nauta
-#Innovated by Henry Lawrence
+#Changed by Henry Lawrence
 #Bring in pygame module
 import pygame, sys
 pygame.init()
